@@ -8,15 +8,16 @@
 
 <body>
 
-<?php
+<?php //die id wird in der Übersicht per "?id=" in der URL (also GET) mitgeschickt und ist mit $_GET["id"] ausgelesen
+if (is_numeric($_GET["id"])) { // das ganze Skript nur ausführen, wenn die id eine Zahl ist
 require_once "verbindungsaufbau.php"; //mit Server verbinden
 
-if ($stmt = $mysqli->prepare("SELECT * FROM adressen WHERE id = ?")) { // Datenbank auslesen um alte Daten einzufügen
-        $stmt->bind_param("i", $_GET["id"]);
-        $stmt->execute();
-        $stmt->bind_result($id, $vorname, $nachname, $plz, $ort, $strasse, $hausnummer, $email, $telefon, $bemerkung);
-        $stmt->fetch();
-        $stmt->close();
+if ($stmt = $mysqli->prepare("SELECT * FROM adressen WHERE id = ?")) { // Datenbank auslesen um alte Daten einzufügen (? ist ein Platzhalter) - alternative Methode
+        $stmt->bind_param("i", $_GET["id"]);	// diesen Platzhalter durch $id ersetzen ("i" bedeutet, dass nur eine Zahl eingesetzt werden kann)
+        $stmt->execute(); // den Befehl ausführen
+        $stmt->bind_result($id, $vorname, $nachname, $plz, $ort, $strasse, $hausnummer, $email, $telefon, $bemerkung); // die herrausbekommenen Werte Variablen zuordnen
+        $stmt->fetch(); //Zuordnung ausführen
+        $stmt->close(); 
 } else {echo "Ein Fehler ist aufgetreten.";}
 ?>
 
@@ -25,7 +26,7 @@ if ($stmt = $mysqli->prepare("SELECT * FROM adressen WHERE id = ?")) { // Datenb
 <table>
 	<tr>
 		<td>Vorname:</td>
-		<td><input type="text" name="vorname" required autofocus value="<?php echo $vorname; ?>" /></td>
+		<td><input type="text" name="vorname" required autofocus value="<?php echo $vorname; //jeweils für value='' den Wert einsetzen ?>" /></td>
 	</tr>
 	<tr>
 		<td>Nachname: </td>
@@ -60,26 +61,27 @@ if ($stmt = $mysqli->prepare("SELECT * FROM adressen WHERE id = ?")) { // Datenb
 		<td><textarea name="bemerkung" rows="5" cols="25"><?php echo $bemerkung; ?></textarea></td>
 	</tr>
 </table>
-<input type="hidden" name="id" value="<?php echo $_GET['id']; ?>" />
+<input type="hidden" name="id" value="<?php echo $_GET['id']; //verstecktes Formularfeld, in dem die id mitgeschickt wird (wäre sonst beim absenden nicht mehr vorhanden) ?>" />
 <input type="submit" id="submit" name="submit" value="Adresse ändern">
 </form>
 
 <p><a href="./adressen-auslesen.php" >zum Auslesen</a></p>
 
 <?php
-if (isset($_POST["submit"])) {
+if (isset($_POST["submit"])) { //Wenn die Daten abgeschickt wurden ...
 
-# falls Klick auf Submit-Button --> mit Datenbank verbinden
-include("verbindungsaufbau.php");
+include("verbindungsaufbau.php"); //mit Datenbank verbinden
 
-#Definieren der SQL-INSERT Anweisung
-$sql= "UPDATE adressen SET vorname = '$_POST[vorname]',nachname = '$_POST[nachname]',plz = '$_POST[plz]',ort = '$_POST[ort]',strasse = '$_POST[strasse]',hausnummer = '$_POST[hausnummer]',email = '$_POST[email]',telefon = '$_POST[telefon]',bemerkung = '$_POST[bemerkung]' WHERE id = $_POST[id];";
+$sql= "UPDATE adressen SET vorname = '$_POST[vorname]',nachname = '$_POST[nachname]',plz = '$_POST[plz]',ort = '$_POST[ort]',strasse = '$_POST[strasse]',hausnummer = '$_POST[hausnummer]',email = '$_POST[email]',telefon = '$_POST[telefon]',bemerkung = '$_POST[bemerkung]' WHERE id = $_POST[id];"; //Alle Felder updaten
 #Durchführen der Eintragung + Rückmeldung ob Erfolg
 if ($mysqli->query($sql)) {
-	echo "<p><strong>Eintragung erfolgreich</p>";
+	echo "<p><strong>Eintragung erfolgreich</strong></p>";
 } else {
 	echo "<p><strong>Eintragung nicht erfolgreich. Der folgende Fehler ist aufgetreten:" . $mysqli->error . "</strong></p>";
 }
+}
+} else {
+echo "<p><strong>Die id muss eine Zahl sein</strong></p>";
 }
 ?>
 
