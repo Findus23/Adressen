@@ -9,7 +9,7 @@
 <body>
 
 <?php //die id wird in der Übersicht per "?id=" in der URL (also GET) mitgeschickt und ist mit $_GET["id"] ausgelesen
-if (is_numeric($_GET["id"])) { // das ganze Skript nur ausführen, wenn die id eine Zahl ist
+if (isset($_GET["id"]) && is_numeric($_GET["id"]) || isset($_POST["id"]) && is_numeric($_POST["id"])) { // das ganze Skript nur ausführen, wenn die id eine Zahl ist
 require_once "verbindungsaufbau.php"; //mit Server verbinden
 
 if ($stmt = $mysqli->prepare("SELECT * FROM adressen WHERE id = ?")) { // Datenbank auslesen um alte Daten einzufügen (? ist ein Platzhalter) - alternative Methode
