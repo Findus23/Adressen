@@ -81,7 +81,13 @@ if ($mysqli->query($sql)) {
 }
 }
 } else {
-echo "<p><strong>Die id muss eine Zahl sein</strong></p>";
+?>
+<p> <strong> Bitte die ID des Freundes eingeben, den Sie ändern möchten: </strong></p>
+<form method="GET" action="./adressen-aendern.php">
+<input type="number" name="id" /> 
+<input type="submit" value="Termin bearbeiten"/>
+</form>
+<?php 
 }
 ?>
 
