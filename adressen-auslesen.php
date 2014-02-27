@@ -4,6 +4,11 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Adressen auslesen</title>
+	<style>
+	#navigation { /* Da nav.a nicht funktioniert */
+	margin-left: 80px;
+	margin-right: 10px;
+	</style>
 </head>
 
 <body>
@@ -30,6 +35,11 @@ $mysqli->close();
 
 
 ?>
-<p><a href="./adressen-eingeben.php" >zur Eingabe</a></p>
+<nav>
+<a id="navigation" href="./adressen-eingeben.php" >zur Eingabe</a>
+<a id="navigation" href="./adressen-auslesen.php" >zum Auslesen</a>
+<a id="navigation" href="./adressen-aendern.php" >zum Ändern</a>
+<a id="navigation" href="./adressen-loeschen.php" >zum Löschen</a>
+</nav>
 </body>
 </html>

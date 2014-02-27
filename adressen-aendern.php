@@ -80,11 +80,11 @@ if ($mysqli->query($sql)) {
 	echo "<p><strong>Eintragung nicht erfolgreich. Der folgende Fehler ist aufgetreten:" . $mysqli->error . "</strong></p>";
 }
 }
-} else {
+} else { # Falls keine ID über GET übertragen wurde
 ?>
 <p> <strong> Bitte die ID des Freundes eingeben, den Sie ändern möchten: </strong></p>
 <form method="GET" action="./adressen-aendern.php">
-<input type="number" name="id" /> 
+<input type="number" name="id" min="0" required /> 
 <input type="submit" value="Adresse bearbeiten"/>
 </form>
 <?php 
