@@ -9,6 +9,7 @@
 <body>
 
 <?php //die id wird in der Übersicht per "?id=" in der URL (also GET) mitgeschickt und ist mit $_GET["id"] ausgelesen
+include("verbindungsaufbau.php"); //mit Datenbank verbinden
 if (isset($_GET["id"]) && is_numeric($_GET["id"]) || isset($_POST["id"]) && is_numeric($_POST["id"])) { // das ganze Skript nur ausführen, wenn die id eine Zahl ist
 require_once "verbindungsaufbau.php"; //mit Server verbinden
 
@@ -70,8 +71,6 @@ if ($stmt = $mysqli->prepare("SELECT * FROM adressen WHERE id = ?")) { // Datenb
 <?php
 if (isset($_POST["submit"])) { //Wenn die Daten abgeschickt wurden ...
 
-include("verbindungsaufbau.php"); //mit Datenbank verbinden
-
 $sql= "UPDATE adressen SET vorname = '$_POST[vorname]',nachname = '$_POST[nachname]',plz = '$_POST[plz]',ort = '$_POST[ort]',strasse = '$_POST[strasse]',hausnummer = '$_POST[hausnummer]',email = '$_POST[email]',telefon = '$_POST[telefon]',bemerkung = '$_POST[bemerkung]' WHERE id = $_POST[id];"; //Alle Felder updaten
 #Durchführen der Eintragung + Rückmeldung ob Erfolg
 if ($mysqli->query($sql)) {
@@ -87,7 +86,30 @@ if ($mysqli->query($sql)) {
 <input type="number" name="id" min="0" required /> 
 <input type="submit" value="Adresse bearbeiten"/>
 </form>
+<br />
 <?php 
+
+$ergebnis = $mysqli->query("SELECT * FROM adressen ORDER BY vorname");  //SQL Befehl ausführen
+echo "<table border='1'>\n";
+echo "<tr><th>ID</th><th>Vorname</th><th>Nachname</th><th>Ort</th><th>Adresse</th><th>Telefon</th><th>email</th><th>bemerkung</th><th>ändern</th><th>löschen</th>"; //Zeile mit Überschriften
+while ($zeile = $ergebnis->fetch_array()) { // für jeden Wert in der Datenbank eine Tabellenzeile
+		echo "<tr><td>" . htmlspecialchars($zeile["id"]) . "</td>"
+        . "<td>" . htmlspecialchars($zeile['vorname']) . "</td>"
+        . "<td>" . htmlspecialchars($zeile['nachname']) . "</td>"
+        . "<td>" . htmlspecialchars($zeile['plz']) . " " . htmlspecialchars($zeile['ort']) . "</td>"
+        . "<td>" . htmlspecialchars($zeile['strasse']) . " " . htmlspecialchars($zeile['hausnummer']) . "</td>"
+		. "<td>" . htmlspecialchars($zeile['telefon']) . "</td>"
+		. "<td>" . htmlspecialchars($zeile['email']) . "</td>"
+		. "<td>" . htmlspecialchars($zeile['bemerkung']) . "</td>"
+        . "<td><a href='./adressen-aendern.php?id=" . htmlspecialchars($zeile['id']) . "'>ändern</a></td>" // für jede Zeile wird ein Link der Art "./loeschen.php?id=1" erstellt, um in der Datei auszuwählen, welcher Kontakt bearbeitet/gelöscht werden soll
+        . "<td><a href='./adressen-loeschen.php?id=" . htmlspecialchars($zeile['id']) . "'>löschen</a></td>"
+        ."</td></tr>\n" ;
+}
+echo "</table>";
+$ergebnis->close();
+$mysqli->close();
+
+
 }
 ?>
 

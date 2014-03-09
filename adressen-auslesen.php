@@ -16,9 +16,10 @@
 require_once "verbindungsaufbau.php"; //mit Server verbinden
 $ergebnis = $mysqli->query("SELECT * FROM adressen ORDER BY vorname");  //SQL Befehl ausführen
 echo "<table border='1'>\n";
-echo "<tr><th>Vorname</th><th>Nachname</th><th>Ort</th><th>Adresse</th><th>Telefon</th><th>email</th><th>bemerkung</th><th>ändern</th><th>löschen</th>"; //Zeile mit Überschriften
+echo "<tr><th>ID</th><th>Vorname</th><th>Nachname</th><th>Ort</th><th>Adresse</th><th>Telefon</th><th>email</th><th>bemerkung</th><th>ändern</th><th>löschen</th>"; //Zeile mit Überschriften
 while ($zeile = $ergebnis->fetch_array()) { // für jeden Wert in der Datenbank eine Tabellenzeile
-		echo "<tr><td>" . htmlspecialchars($zeile["vorname"]) . "</td>"
+		echo "<tr><td>" . htmlspecialchars($zeile["id"]) . "</td>"
+        . "<td>" . htmlspecialchars($zeile['vorname']) . "</td>"
         . "<td>" . htmlspecialchars($zeile['nachname']) . "</td>"
         . "<td>" . htmlspecialchars($zeile['plz']) . " " . htmlspecialchars($zeile['ort']) . "</td>"
         . "<td>" . htmlspecialchars($zeile['strasse']) . " " . htmlspecialchars($zeile['hausnummer']) . "</td>"
