@@ -1,57 +1,59 @@
 <!DOCTYPE html>
 <html>
-
+<?php
+require_once "locale.php"; //Lokalisierung starten
+?>
 <head>
-	<title>Adressen eingeben</title>
+	<title><?php echo _("Enter Address") ?></title>
 	<meta charset="utf-8" />
 </head>
 
 <body>
 
-<h1>Adressen eingeben</h1>
+<h1><?php echo _("Enter Address") ?></h1>
 <form action="adressen-eingeben.php" method="POST">
 <table>
 	<tr>
-		<td>Vorname:</td>
+		<td><?php echo _("First Name") ?>:</td>
 		<td><input type="text" name="vorname" required autofocus /></td>
 	</tr>
 	<tr>
-		<td>Nachname: </td>
+		<td><?php echo _("Surname") ?>: </td>
 		<td><input type="text" name="nachname" required  /></td>
 	</tr>
 	<tr>
-		<td>PLZ: </td>
+		<td><?php echo _("Address") ?>: </td>
 		<td><input type="text" name="plz" required /></td>
 	</tr>
 	<tr>
-		<td>Ort: </td>
+		<td><?php echo _("City") ?>: </td>
 		<td><input type="text" name="ort" required  /></td>
 	</tr>
 	<tr>
-		<td>Straße: </td>
+		<td><?php echo _("Street") ?>: </td>
 		<td><input type="text" name="strasse" required  /></td>
 	</tr>
 	<tr>
-		<td>Hausnummer: </td>
+		<td><?php echo _("House Number") ?>: </td>
 		<td><input type="text" name="hausnummer" required  /></td>
 	</tr>
 	<tr>
-		<td>Telefon: </td>
+		<td><?php echo _("Phone") ?>: </td>
 		<td><input type="text" name="telefon"  /></td>
 	</tr>
 	<tr>
-		<td>E-Mail: </td>
+		<td><?php echo _("E-Mail") ?>: </td>
 		<td><input type="text" name="email" required  /></td>
 	</tr>
 	<tr>
-		<td>Bemerkung: </td>
+		<td><?php echo _("Comment") ?>: </td>
 		<td><textarea name="bemerkung" rows="5" cols="25"></textarea></td>
 	</tr>
 </table>
-<input type="submit" id="submit" name="submit" value="Adresse hinzufügen">
+<input type="submit" id="submit" name="submit" value="<?php echo _("submit address") ?>">
 </form>
 
-<p><a href="./adressen-auslesen.php" >zum Auslesen</a></p>
+<p><a href="./adressen-auslesen.php" ><?php echo _("to list of addresses") ?></a></p>
 
 <?php
 if (isset($_POST["submit"])) {
@@ -64,9 +66,9 @@ $sql= "INSERT INTO adressen (id, vorname, nachname, plz, ort, strasse, hausnumme
 
 #Durchführen der Eintragung + Rückmeldung ob Erfolg
 if ($mysqli->query($sql)) {
-	echo "<p><strong>Eintragung erfolgreich</p>";
+	echo "<p><strong>" . _("Submission was successful") . "</p>";
 } else {
-	echo "<p><strong>Eintragung nicht erfolgreich. Der folgende Fehler ist aufgetreten:" . $mysqli->error . "</strong></p>";
+	echo "<p><strong>" . _("Submission was not successful. The following error occurred:") . $mysqli->error . "</strong></p>";
 }
 
 }
