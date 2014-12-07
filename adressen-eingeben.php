@@ -22,7 +22,7 @@ require_once "locale.php"; //Lokalisierung starten
 		<td><input type="text" name="nachname" required  /></td>
 	</tr>
 	<tr>
-		<td><?php echo _("Address") ?>: </td>
+		<td><?php echo _("postcode") ?>: </td>
 		<td><input type="text" name="plz" required /></td>
 	</tr>
 	<tr>
@@ -73,6 +73,18 @@ if ($mysqli->query($sql)) {
 
 }
 ?>
-
+<a style="position:absolute;top:10px;right:10px" href='?lang=<?php
+switch ($language) {
+	case "en_US":
+		echo "de_AT.utf8'>zu Deutsch wechseln";
+		break;
+	case "de_AT.utf8":
+		echo "en_US'>switch to English";
+		break;
+	default:
+		echo "de_AT.utf8'>zu Deutsch wechseln";
+		break;
+}
+?></a>
 </body>
 </html>

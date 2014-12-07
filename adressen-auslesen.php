@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html>
 <?php
 require_once "locale.php"; //Lokalisierung starten
 ?>
@@ -44,7 +44,7 @@ $mysqli->close();
 <a id="navigation" href="./adressen-aendern.php" >zum Ändern</a>
 <a id="navigation" href="./adressen-loeschen.php" >zum Löschen</a>
 </nav>
-</br><a href='./adressen-auslesen.php?lang=<?php
+<a style="position:absolute;top:10px;right:10px" href='?lang=<?php
 switch ($language) {
 	case "en_US":
 		echo "de_AT.utf8'>zu Deutsch wechseln";
@@ -55,7 +55,6 @@ switch ($language) {
 	default:
 		echo "de_AT.utf8'>zu Deutsch wechseln";
 		break;
-
 }
 ?></a>
 </body>

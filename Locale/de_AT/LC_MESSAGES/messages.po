@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: messages\n"
-"POT-Creation-Date: 2014-12-06 16:01+0100\n"
+"POT-Creation-Date: 2014-12-07 13:56+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Lukas Winkler <l.winkler23@gmx.at>\n"
 "Language-Team: Lukas Winkler\n"
@@ -15,61 +15,103 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ../../..\n"
 
+#: ../../../adressen-aendern.php:7
+msgid "Change Address"
+msgstr "Adresse ändern"
+
+#: ../../../adressen-aendern.php:31 ../../../adressen-aendern.php:96
+#: ../../../adressen-auslesen.php:22 ../../../adressen-eingeben.php:17
+#: ../../../adressen-loeschen.php:39
+msgid "First Name"
+msgstr "Vorname"
+
+#: ../../../adressen-aendern.php:35 ../../../adressen-aendern.php:96
+#: ../../../adressen-auslesen.php:22 ../../../adressen-eingeben.php:21
+#: ../../../adressen-loeschen.php:39
+msgid "Surname"
+msgstr "Nachname"
+
+#: ../../../adressen-aendern.php:39 ../../../adressen-eingeben.php:25
+msgid "postcode"
+msgstr "PLZ"
+
+#: ../../../adressen-aendern.php:43 ../../../adressen-aendern.php:96
+#: ../../../adressen-auslesen.php:22 ../../../adressen-eingeben.php:29
+#: ../../../adressen-loeschen.php:39
+msgid "City"
+msgstr "Stadt"
+
+#: ../../../adressen-aendern.php:47 ../../../adressen-eingeben.php:33
+msgid "Street"
+msgstr "Straße"
+
+#: ../../../adressen-aendern.php:51 ../../../adressen-eingeben.php:37
+msgid "House Number"
+msgstr "Hausnummer"
+
+#: ../../../adressen-aendern.php:55 ../../../adressen-aendern.php:96
+#: ../../../adressen-auslesen.php:22 ../../../adressen-eingeben.php:41
+#: ../../../adressen-loeschen.php:39
+msgid "Phone"
+msgstr "Telefon"
+
+#: ../../../adressen-aendern.php:59 ../../../adressen-aendern.php:96
+#: ../../../adressen-auslesen.php:22 ../../../adressen-eingeben.php:45
+#: ../../../adressen-loeschen.php:39
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#: ../../../adressen-aendern.php:63 ../../../adressen-aendern.php:96
+#: ../../../adressen-auslesen.php:22 ../../../adressen-eingeben.php:49
+#: ../../../adressen-loeschen.php:39
+msgid "Comment"
+msgstr "Kommentar"
+
+#: ../../../adressen-aendern.php:68 ../../../adressen-aendern.php:89
+msgid "change address"
+msgstr "Adresse ändern"
+
+#: ../../../adressen-aendern.php:79 ../../../adressen-eingeben.php:69
+msgid "Submission was successful"
+msgstr "Eintragung erfolgreich"
+
+#: ../../../adressen-aendern.php:81 ../../../adressen-eingeben.php:71
+msgid "Submission was not successful. The following error occurred:"
+msgstr "Eintragung war nicht erfolgreich. Der folgende Fehler ist aufgetreten:"
+
+#: ../../../adressen-aendern.php:86
+msgid "Please enter the ID of the address you like to change."
+msgstr "Bitte gib die ID der zu löschenden Adresse an."
+
+#: ../../../adressen-aendern.php:96 ../../../adressen-auslesen.php:22
+#: ../../../adressen-loeschen.php:39
+msgid "ID"
+msgstr "ID"
+
+#: ../../../adressen-aendern.php:96 ../../../adressen-auslesen.php:22
+#: ../../../adressen-loeschen.php:39
+msgid "Address"
+msgstr "Adresse"
+
+#: ../../../adressen-aendern.php:96 ../../../adressen-aendern.php:106
+#: ../../../adressen-auslesen.php:22 ../../../adressen-auslesen.php:32
+#: ../../../adressen-loeschen.php:39 ../../../adressen-loeschen.php:49
+msgid "Change"
+msgstr "Ändern"
+
+#: ../../../adressen-aendern.php:96 ../../../adressen-aendern.php:107
+#: ../../../adressen-auslesen.php:22 ../../../adressen-auslesen.php:33
+#: ../../../adressen-loeschen.php:39 ../../../adressen-loeschen.php:50
+msgid "Delete"
+msgstr "Entfernen"
+
 #: ../../../adressen-auslesen.php:8
 msgid "Show Addresses"
 msgstr "Adressen auslesen"
 
-#: ../../../adressen-auslesen.php:22
-msgid "ID"
-msgstr "ID"
-
-#: ../../../adressen-auslesen.php:22 ../../../adressen-eingeben.php:17
-msgid "First Name"
-msgstr "Vorname"
-
-#: ../../../adressen-auslesen.php:22 ../../../adressen-eingeben.php:21
-msgid "Surname"
-msgstr "Nachname"
-
-#: ../../../adressen-auslesen.php:22 ../../../adressen-eingeben.php:29
-msgid "City"
-msgstr "Stadt"
-
-#: ../../../adressen-auslesen.php:22 ../../../adressen-eingeben.php:25
-msgid "Address"
-msgstr "Adresse"
-
-#: ../../../adressen-auslesen.php:22 ../../../adressen-eingeben.php:41
-msgid "Phone"
-msgstr "Telefon"
-
-#: ../../../adressen-auslesen.php:22 ../../../adressen-eingeben.php:45
-msgid "E-Mail"
-msgstr "E-Mail"
-
-#: ../../../adressen-auslesen.php:22 ../../../adressen-eingeben.php:49
-msgid "Comment"
-msgstr "Kommentar"
-
-#: ../../../adressen-auslesen.php:22 ../../../adressen-auslesen.php:32
-msgid "Change"
-msgstr "Ändern"
-
-#: ../../../adressen-auslesen.php:22 ../../../adressen-auslesen.php:33
-msgid "Delete"
-msgstr "Entfernen"
-
 #: ../../../adressen-eingeben.php:7 ../../../adressen-eingeben.php:13
 msgid "Enter Address"
 msgstr "Adresse eingeben"
-
-#: ../../../adressen-eingeben.php:33
-msgid "Street"
-msgstr "Straße"
-
-#: ../../../adressen-eingeben.php:37
-msgid "House Number"
-msgstr "Hausnummer"
 
 #: ../../../adressen-eingeben.php:53
 msgid "submit address"
@@ -79,13 +121,29 @@ msgstr "Adresse absenden"
 msgid "to list of addresses"
 msgstr "zu den Adressen"
 
-#: ../../../adressen-eingeben.php:69
-msgid "Submission was successful"
-msgstr "Eintragung erfolgreich"
+#: ../../../adressen-loeschen.php:7
+msgid "Delete Address"
+msgstr "Adresse löschen"
 
-#: ../../../adressen-eingeben.php:71
-msgid "Submission was not successful. The following error occurred:"
-msgstr "Eintragung nicht erfolgreich. Der folgende Fehler ist aufgetreten:"
+#: ../../../adressen-loeschen.php:24
+msgid "Deletion was not successful. The following error occurred:"
+msgstr "Löschen war nicht erfolgreich. Der folgende Fehler ist aufgetreten:"
+
+#: ../../../adressen-loeschen.php:29
+msgid "Please enter the ID of the address you like to delete."
+msgstr "Bitte gib die ID der zu ändernden Adresse an."
+
+#: ../../../adressen-loeschen.php:32
+msgid "delete address"
+msgstr "Adresse löschen"
+
+#: ../../../verbindungsaufbau.php:4
+msgid "Connecting Error: "
+msgstr "Verbindungsfehler"
+
+#: ../../../verbindungsaufbau.php:8
+msgid "Error while loading UTF-8"
+msgstr "Fehler beim Laden von UTF-8"
 
 #~ msgid "Eintragung erfolgreich"
 #~ msgstr "Submision "
