@@ -19,7 +19,7 @@ if ($mysqli->query($sql)) {
 	$URL = "http://$host$link";	// optional:http://, Host und Link zusammenfügen um Url zur Datei zu bekommen
 	header("Location: ". $URL ."/adressen-auslesen.php"); // zur Hauptseite weiterleiten /alternativ: echo "Die Datei wurde erfolgreich gelöscht"
 } else {
-	echo "<p><strong>Eintragung nicht erfolgreich. Der folgende Fehler ist aufgetreten:" . $mysqli->error . "</strong></p>";
+	echo "<p><strong>Löschen nicht erfolgreich. Der folgende Fehler ist aufgetreten:" . $mysqli->error . "</strong></p>";
 }
 
 } else { # Falls keine ID über GET empfangen wurde

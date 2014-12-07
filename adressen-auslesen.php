@@ -8,6 +8,7 @@
 	#navigation { /* Da nav.a nicht funktioniert */
 	margin-left: 80px;
 	margin-right: 10px;
+	}
 	</style>
 </head>
 
