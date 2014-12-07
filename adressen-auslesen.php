@@ -34,7 +34,6 @@ while ($zeile = $ergebnis->fetch_array()) { // für jeden Wert in der Datenbank 
         ."</td></tr>\n" ;
 }
 echo "</table>";
-echo "<p>" . $language ."</p>";
 $ergebnis->close();
 $mysqli->close();
 ?>
